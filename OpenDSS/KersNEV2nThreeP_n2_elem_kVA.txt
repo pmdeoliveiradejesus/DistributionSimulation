@@ -1,0 +1,87 @@
+
+  Bus   (node ref)  Node       V (kV)    Angle    p.u.   Base kV
+
+N2 . 1       6.6857 /_   -2.2         0     0.000        1-2      11.84 /_   27.4         0
+   - 2       6.8723 /_ -123.9         0     0.000        2-3     11.809 /_  -92.5         0
+   - 3       6.9345 /_  118.5         0     0.000        3-1     11.839 /_  147.6         0
+
+CIRCUIT ELEMENT CURRENTS
+
+(Currents into element from indicated bus)
+
+Power Delivery Elements
+
+  Bus         Phase    Magnitude, A     Angle      (Real)   +j  (Imag)
+
+ELEMENT = "Line.LINE1"
+SOURCEBUS     1           448.62 /_  -28.0 =     395.93 +j   -210.95
+SOURCEBUS     2           509.25 /_ -142.1 =    -401.75 +j   -312.94
+SOURCEBUS     3           360.49 /_   86.7 =     20.501 +j     359.9
+SOURCEBUS Resid           164.64 /_   95.1 =      -14.68 +j    163.99
+------------
+N2       1           448.68 /_  151.9 =    -395.95 +j    211.05
+N2       2           509.28 /_   37.9 =     401.84 +j    312.87
+N2       3           360.52 /_  -93.3 =    -20.577 +j   -359.93
+N2   Resid           164.64 /_  -84.9 =      14.688 +j   -163.99
+
+
+= = = = = = = = = = = = = = = = = = =  = = = = = = = = = = =  = =
+
+Power Conversion Elements
+
+  Bus         Phase    Magnitude, A     Angle      (Real)   +j  (Imag)
+
+ELEMENT = "Load.N2.1"
+N2       1           448.69 /_  -28.1 =     395.96 +j   -211.05
+N2       0           448.69 /_  151.9 =    -395.96 +j    211.05
+
+
+ELEMENT = "Load.N2.2"
+N2       2           509.28 /_ -142.1 =    -401.84 +j   -312.88
+N2       0           509.28 /_   37.9 =     401.84 +j    312.88
+
+
+ELEMENT = "Load.N2.3"
+N2       3           360.52 /_   86.7 =     20.578 +j    359.93
+N2       0           360.52 /_  -93.3 =    -20.578 +j   -359.93
+
+
+
+CIRCUIT ELEMENT POWER FLOW
+
+(Power Flow into element from indicated Bus)
+
+  Bus       Phase     kW     +j   kvar           kVA           PF
+
+ELEMENT = "Line.LINE1"    
+N2              1    -2699.8 +j    -1307.5        2999.8      0.9000
+N2              2    -3324.9 +j    -1092.8        3499.9      0.9500
+N2              3      -2125 +j      -1317          2500      0.8500
+ TERMINAL TOTAL      -8149.8 +j    -3717.3        8957.5      0.9098
+------------
+ELEMENT = "Line.LINE1"    
+SOURCEBUS       1     2830.7 +j     1459.3        3184.8      0.8888
+SOURCEBUS       2     3371.9 +j     1301.9        3614.5      0.9329
+SOURCEBUS       3     2157.4 +j     1385.1        2563.8      0.8415
+ TERMINAL TOTAL       8360.1 +j     4146.3        9331.8      0.8959
+= = = = = = = = = = = = = = = = = = =  = = = = = = = = = = =  = =
+
+Power Conversion Elements
+
+  Bus         Phase     kW   +j  kvar         kVA         PF
+
+ELEMENT = "Load.N2.1"     
+N2              1     2699.9 +j     1307.5        2999.8      0.9000
+N2              0          0 +j          0             0      1.0000
+ TERMINAL TOTAL       2699.9 +j     1307.5        2999.8      0.9000
+
+ELEMENT = "Load.N2.2"     
+N2              2       3325 +j     1092.8        3499.9      0.9500
+N2              0          0 +j          0             0      1.0000
+ TERMINAL TOTAL         3325 +j     1092.8        3499.9      0.9500
+
+ELEMENT = "Load.N2.3"     
+N2              3       2125 +j       1317          2500      0.8500
+N2              0          0 +j          0             0      1.0000
+ TERMINAL TOTAL         2125 +j       1317          2500      0.8500
+

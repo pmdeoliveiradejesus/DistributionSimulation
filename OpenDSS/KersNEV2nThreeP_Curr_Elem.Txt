@@ -1,0 +1,47 @@
+
+CIRCUIT ELEMENT CURRENTS
+
+(Currents into element from indicated bus)
+
+Power Delivery Elements
+
+  Bus     Phase    Magnitude, A     Angle      (Real)   +j  (Imag)
+
+ELEMENT = "Vsource.SOURCE"
+SOURCEBUS     1           414.09 /_  152.9 =    -368.64 +j    188.62
+SOURCEBUS     2           166.27 /_   40.8 =      125.8 +j    108.72
+SOURCEBUS     3           356.22 /_  -96.9 =     -42.89 +j   -353.63
+------------
+SOURCEBUS     0           414.09 /_  -27.1 =     368.64 +j   -188.62
+SOURCEBUS     0           166.27 /_ -139.2 =     -125.8 +j   -108.72
+SOURCEBUS     0           356.22 /_   83.1 =      42.89 +j    353.63
+
+ELEMENT = "Line.LINE1"
+SOURCEBUS     1           414.09 /_  -27.1 =     368.64 +j   -188.62
+SOURCEBUS     2           166.27 /_ -139.2 =     -125.8 +j   -108.72
+SOURCEBUS     3           356.22 /_   83.1 =      42.89 +j    353.63
+SOURCEBUS Resid           291.22 /_ -168.9 =     -285.73 +j   -56.292
+------------
+N2            1           414.25 /_  152.9 =    -368.69 +j    188.87
+N2            2           166.33 /_   40.7 =     126.04 +j    108.53
+N2            3           356.32 /_  -96.9 =    -43.089 +j   -353.71
+N2        Resid           291.23 /_   11.1 =      285.74 +j    56.301
+
+= = = = = = = = = = = = = = = = = = =  = = = = = = = = = = =  = =
+
+Power Conversion Elements
+
+  Bus     Phase    Magnitude, A     Angle      (Real)   +j  (Imag)
+
+ELEMENT = "Load.N2.1"
+N2            1           428.49 /_  -23.9 =     391.85 +j   -173.38
+N2            0           428.49 /_  156.1 =    -391.85 +j    173.38
+
+ELEMENT = "Load.N2.2"
+N2            2           133.18 /_ -145.6 =    -109.94 +j   -75.167
+N2            0           133.18 /_   34.4 =     109.94 +j    75.167
+
+ELEMENT = "Load.N2.3"
+N2            3           367.17 /_   81.8 =     52.174 +j    363.45
+N2            0           367.17 /_  -98.2 =    -52.174 +j   -363.45
+

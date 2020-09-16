@@ -1,0 +1,14 @@
+
+SYMMETRICAL COMPONENT POWERS BY CIRCUIT ELEMENT (first 3 phases)                                     Excess Power
+
+Element          Term    P1(kW)   Q1(kvar)       P2         Q2      P0      Q0       P_Norm      Q_Norm     P_Emerg    Q_Emerg
+
+"Vsource.SOURCE"  1    -8361.5    -4150.6        0.6        1.7     0.9     2.7
+"Vsource.SOURCE"  2        0.0        0.0        0.0        0.0     0.0     0.0
+"Line.LINE1"      1     8361.5     4150.6       -0.6       -1.7    -0.9    -2.7        0.0        0.0        0.0        0.0
+"Line.LINE1"      2    -8159.1    -3743.6       -0.0        1.6     9.4    24.7
+"Load.N2.1"       1        0.0        0.0        0.0        0.0     0.0     0.0
+"Load.N2.2"       1        0.0        0.0        0.0        0.0     0.0     0.0
+"Load.N2.3"       1        0.0        0.0        0.0        0.0     0.0     0.0
+
+Total Circuit Losses =  210.3 +j  429.0

@@ -1,0 +1,97 @@
+function [zabc,zabcn,yshabc,yshabcn,z012,ysh012] = networkk(db)
+% this routine calculates primitive, three phase and positive sequence 
+% impedances and admittances for a general two-bus system
+%% Load data
+L=db(1);%section length
+GMRf=db(2);%feet Skin Effect
+rf=db(3);%ohm/mile
+RDf=db(4);%inches
+GMRn=db(5);%feet Skin Effect
+rn=db(6);%ohm/mile
+RDn=db(7);%inches
+f=db(8);%Hz
+rvd= db(9);%soil resistivity (ohm-m)
+Dab=db(10);%feet
+Dbc=db(11);%feet
+Dac=db(12);%feet
+Dcn=db(13);%feet
+Dn =db(14);%feet
+Dbn=db(15);%feet
+Dan=db(16);%feet
+hqa=db(17);%feet
+hqb=db(18);%feet
+hqc=db(19);%feet
+hqn=db(20);%feet
+%% Impedance calculation Simplified Carson approach
+eta=1.6093;%1 mile = 1.6093 km
+re=(pi/4)*4*eta*pi*f*0.0001;%ground resistance
+w=2*pi*f;%angular frequency rad/seg
+De=2160*sqrt(rvd/f);%equivalent diameter
+mu0=4*pi*eta/10000;%H/mile
+i=sqrt(-1);
+%% Primitive series impedance matrix calculation [zabcn] 
+zp(1,1)=rf+w*mu0/8+i*((mu0*w/(2*pi))*(log(De/(GMRf))));%ohm/mile
+zp(2,2)=rf+w*mu0/8+i*((mu0*w/(2*pi))*(log(De/(GMRf))));%ohm/mile
+zp(3,3)=rf+w*mu0/8+i*((mu0*w/(2*pi))*(log(De/(GMRf))));%ohm/mile
+zp(4,4)=(rn+re+sqrt(-1)*(mu0*f*(log(2160*sqrt(rvd/f)*inv(GMRn)))));%ohm/mile
+zp(1,2)=w*mu0/8+i*((mu0*w/(2*pi))*(log(De/(Dab))));%ohm/mile
+zp(1,3)=w*mu0/8+i*((mu0*w/(2*pi))*(log(De/(Dac))));%ohm/mile
+zp(1,4)=w*mu0/8+i*((mu0*w/(2*pi))*(log(De/(Dan))));%ohm/mile
+zp(2,3)=w*mu0/8+i*((mu0*w/(2*pi))*(log(De/(Dbc))));%ohm/mile
+zp(2,4)=w*mu0/8+i*((mu0*w/(2*pi))*(log(De/(Dbn))));%ohm/mile
+zp(3,4)=w*mu0/8+i*((mu0*w/(2*pi))*(log(De/(Dcn))));%ohm/mile
+zp(2,1)=zp(1,2);%ohm/mile
+zp(3,1)=zp(1,3);%ohm/mile
+zp(4,1)=zp(1,4);%ohm/mile
+zp(3,2)=zp(2,3);%ohm/mile
+zp(4,2)=zp(2,4);%ohm/mile
+zp(4,3)=zp(3,4);%ohm/mile
+zabcn=zp*L;%ohm [4x4 Primitive series impedance matrix]
+zij=[zabcn(1,1) zabcn(1,2) zabcn(1,3);zabcn(2,1) zabcn(2,2) zabcn(2,3);zabcn(3,1) zabcn(3,2) zabcn(3,3)];%ohm 
+zin=[zabcn(1,4);zabcn(2,4);zabcn(3,4)];%ohm 
+znj=[zabcn(4,1) zabcn(4,2) zabcn(4,3)];%ohm
+znn=zabcn(4,4);%ohm 
+zabc=(zij-zin*inv(znn)*znj);%Kron's reduction (%ohm) [3x3 Three-phase series impedance matrix]
+a=-0.5+j*sqrt(3)*.5;
+As=[1 1 1;1 a^2 a; 1 a a^2];
+z012=inv(As)*zabc*As;%ohm 
+z=z012(2,2);%ohm [Positive sequence series impedance]
+%% Primitive shunt admittance matrix calculation [yshabcn] 
+S(1,1)=(hqa)*2;%feet
+S(2,2)=(hqa)*2;%feet
+S(3,3)=(hqa)*2;%feet
+S(4,4)=(hqn)*2;%feet
+S(1,2)=sqrt((hqa)*2+Dab*2);%feet
+S(1,3)=sqrt((hqa)*2+(Dab+Dbc)*2);%feet
+S(2,3)=sqrt((hqa)*2+(Dbc)*2);%feet
+S(1,4)=sqrt((hqn+hqa)+(Dab+Dbc-Dn)*2);%feet
+S(2,4)=sqrt((hqn+hqa)+(Dbc-Dn)*2);%feet
+S(3,4)=sqrt((hqn+hqa)+(Dn)*2);%feet
+P(1,1)=11.17689*log(S(1,1)/(RDf/12));%mile/microF
+P(2,2)=11.17689*log(S(2,2)/(RDf/12));%mile/microF
+P(3,3)=11.17689*log(S(3,3)/(RDf/12));%mile/microF
+P(4,4)=11.17689*log(S(4,4)/(RDn/12));%mile/microF
+P(1,2)=11.17689*log(S(1,2)/Dab);%mile/microF
+P(1,3)=11.17689*log(S(1,3)/Dac);%mile/microF
+P(2,3)=11.17689*log(S(2,3)/Dbc);%mile/microF
+P(1,4)=11.17689*log(S(1,4)/Dan);%mile/microF
+P(2,4)=11.17689*log(S(2,4)/Dbn);%mile/microF
+P(3,4)=11.17689*log(S(3,4)/Dcn);%mile/microF
+P(2,1)=P(1,2);%mile/microF
+P(1,3)=P(1,3);%mile/microF
+P(3,2)=P(2,3);%mile/microF
+P(4,1)=P(1,4);%mile/microF
+P(4,2)=P(2,4);%mile/microF
+P(4,3)=P(3,4);%mile/microF
+C=inv(P);%microF/mile
+yshabcn=(2*pi*f*C*0.000001*L)*i;%siemens [4x4 Primitive shunt admittance matrix]
+yij=[yshabcn(1,1) yshabcn(1,2) yshabcn(1,3);yshabcn(2,1) yshabcn(2,2) yshabcn(2,3);yshabcn(3,1) yshabcn(3,2) yshabcn(3,3)];
+yin=[yshabcn(1,4);yshabcn(2,4);yshabcn(3,4)];
+ynj=[yshabcn(4,1) yshabcn(4,2) yshabcn(4,3)];
+ynn=yshabcn(4,4);
+yshabc=yij-yin*inv(ynn)*ynj;%Kron's reduction (siemens) [3x3 Three-phase shunt admittance matrix]
+a=-0.5+j*sqrt(3)*.5;
+As=[1 1 1;1 a^2 a; 1 a a^2];
+ysh012=imag(inv(As)*yshabc*As)*i;%siemens 
+ysh=ysh012(2,2);%ohm [Positive sequence shunt admittance]
+end

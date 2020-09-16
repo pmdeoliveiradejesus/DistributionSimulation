@@ -1,0 +1,1 @@
+function [I3,I1]=shortcircuit(z012,zg012)global rfglobal kVLN;I3(1)=kVLN/(zg012(2,2));%kAI3(2)=kVLN/(zg012(2,2)+z012(2,2)+rf);%kAI1(1)=3*kVLN/(zg012(1,1)+2*zg012(2,2));%kAI1(2)=3*kVLN/(zg012(1,1)+2*zg012(2,2)+z012(1,1)+2*z012(2,2)+3*rf);%kAend

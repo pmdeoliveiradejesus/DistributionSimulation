@@ -1,0 +1,16 @@
+
+Elements in Active Circuit: kersnev2nthreep
+
+Power Delivery Elements
+
+Element          Bus1     Bus2     Bus3     ...
+
+"Line.LINE1"     SOURCEBUS N2        
+
+Power Conversion Elements
+
+Element          Bus1     Bus2     Bus3     ...
+
+"Load.N2.1"      N2        
+"Load.N2.2"      N2        
+"Load.N2.3"      N2        

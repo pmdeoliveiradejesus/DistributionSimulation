@@ -1,0 +1,43 @@
+
+NODE-GROUND VOLTAGES BY CIRCUIT ELEMENT
+
+Power Delivery Elements
+
+Bus       (node ref)  Phase    Magnitude, kV (pu)    Angle
+
+ELEMENT = "Vsource.SOURCE"
+SOURCEBUS  (  1)    1            7.099 (       0) /_   -0.8
+SOURCEBUS  (  2)    2           7.0977 (       0) /_ -121.0
+SOURCEBUS  (  3)    3           7.1119 (       0) /_  119.4
+------------
+SOURCEBUS  (  0) 24114                0 (       0) /_    0.0
+SOURCEBUS  (  0) 24114                0 (       0) /_    0.0
+SOURCEBUS  (  0) 24114                0 (       0) /_    0.0
+
+ELEMENT = "Line.LINE1"
+SOURCEBUS  (  1)    1            7.099 (       0) /_   -0.8
+SOURCEBUS  (  2)    2           7.0977 (       0) /_ -121.0
+SOURCEBUS  (  3)    3           7.1119 (       0) /_  119.4
+------------
+N2         (  4)    1           6.6857 (       0) /_   -2.2
+N2         (  5)    2           6.8723 (       0) /_ -123.9
+N2         (  6)    3           6.9345 (       0) /_  118.5
+
+= = = = = = = = = = = = = = = = = = =  = = = = = = = = = = =  = =
+
+Power Conversion Elements
+
+Bus       (node ref)  Phase    Magnitude, kV (pu)    Angle
+
+ELEMENT = "Load.N2.1"
+N2         (  4)    1           6.6857 (       0) /_   -2.2
+N2         (  0) 24114                0 (       0) /_    0.0
+
+ELEMENT = "Load.N2.2"
+N2         (  5)    2           6.8723 (       0) /_ -123.9
+N2         (  0) 24114                0 (       0) /_    0.0
+
+ELEMENT = "Load.N2.3"
+N2         (  6)    3           6.9345 (       0) /_  118.5
+N2         (  0) 24114                0 (       0) /_    0.0
+
