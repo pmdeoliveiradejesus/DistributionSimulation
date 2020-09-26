@@ -16,10 +16,10 @@ new wiredata.conductor Runits=mi Rac=0.306 GMRunits=ft GMRac=0.0244  Radunits=in
 new wiredata.neutral   Runits=mi Rac=0.592 GMRunits=ft GMRac=0.00814 Radunits=in Diam=5.563 
 ! **** DEFINE LINE GEOMETRY; REDUCE OUT THE NEUTRAL WITH KRON
 new linegeometry.4wire nconds=4 nphases=3 reduce=yes 
-~ cond=1 wire=conductor units=ft x=-4   h=28 
-~ cond=2 wire=conductor units=ft x=-1.5 h=28 
-~ cond=3 wire=conductor units=ft x=3    h=28 
-~ cond=4 wire=neutral   units=ft x=0    h=24 
+~ cond=1 wire=conductor units=ft x=-4   h=29 
+~ cond=2 wire=conductor units=ft x=-1.5 h=29 
+~ cond=3 wire=conductor units=ft x=3    h=29 
+~ cond=4 wire=neutral   units=ft x=0    h=25 
 ! **** 12.47 KV LINE!
 new line.line1 geometry=4wire length=6000 units=ft bus1=sourcebus.1.2.3 bus2=n2.1.2.3
 ! **** DEFINE 3-PHASE UNBALANCED LOADS
@@ -31,6 +31,6 @@ New Load.n2.3 Phases=1  Bus1=n2.3   kVA=2500 pf=0.85  kV=12.47 conn=wye vminpu=0
 solve
 ! Various reports ...
 ! show voltages LN Nodes 
-! show currents resid=yes elements  ! this shows sum of phase currents!
-! Show Powers kva Elements
+ !show currents resid=yes elements  ! this shows sum of phase currents!
+ Show Powers kva Elements
 

@@ -30,10 +30,9 @@ New Fault.faseA   Phases=1  Bus1=n2.1  Bus2=n2.4 R=.000001
 !New Fault.faseB   Phases=1  Bus1=n2.2  Bus2=n2.4 R=.000001
 !New Fault.faseC   Phases=1  Bus1=n2.3  Bus2=n2.4 R=.000001
 solve
-!solve
 ! Various reports ...
 show voltages LN Nodes 
-!show currents resid=yes elements  ! this shows sum of phase currents
+show currents resid=yes elements  ! this shows sum of phase currents
 !Show Powers kva Elements
 !show Y
 !show Yprimshow Y

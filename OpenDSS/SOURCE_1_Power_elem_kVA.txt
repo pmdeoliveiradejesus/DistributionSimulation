@@ -1,0 +1,59 @@
+
+CIRCUIT ELEMENT POWER FLOW
+
+(Power Flow into element from indicated Bus)
+
+Power Delivery Elements
+
+  Bus Phase     kW     +j   kvar         kVA         PF
+
+ELEMENT = "Vsource.SOURCE"
+N1       1         0.1 +j      0.4        0.4       0.1400
+   TERMINAL TOTAL     0.1 +j      0.4        0.4       0.1400
+N1       4        -0.0 +j     -0.0        0.0       0.3715
+   TERMINAL TOTAL    -0.0 +j     -0.0        0.0       0.3715
+
+ELEMENT = "Vsource.SOURCE_2"
+N1       2        -0.0 +j      0.4        0.4      -0.0770
+   TERMINAL TOTAL    -0.0 +j      0.4        0.4      -0.0770
+N1       4         0.0 +j      0.0        0.0       0.9357
+   TERMINAL TOTAL     0.0 +j      0.0        0.0       0.9357
+
+ELEMENT = "Vsource.SOURCE_3"
+N1       3        -0.0 +j      0.4        0.4      -0.0637
+   TERMINAL TOTAL    -0.0 +j      0.4        0.4      -0.0637
+N1       4        -0.0 +j      0.0        0.0      -0.7648
+   TERMINAL TOTAL    -0.0 +j      0.0        0.0      -0.7648
+
+ELEMENT = "Line.LINE1"
+N1       1        -0.1 +j     -0.4        0.4       0.1400
+N1       2         0.0 +j     -0.4        0.4      -0.0770
+N1       3         0.0 +j     -0.4        0.4      -0.0637
+N1       4        -0.0 +j     -0.0        0.0       0.0180
+   TERMINAL TOTAL     0.0 +j     -1.2        1.2      -0.0000
+N2       1         0.0 +j      0.0        0.0       0.3718
+N2       2        -0.0 +j     -0.0        0.0       0.7914
+N2       3        -0.0 +j     -0.0        0.0       0.9512
+N2       4        -0.0 +j     -0.0        0.0       1.0000
+   TERMINAL TOTAL    -0.0 +j     -0.0        0.0       1.0000
+
+ELEMENT = "Reactor.SOURCEGROUND"
+N1       4         0.0 +j      0.0        0.0       1.0000
+   TERMINAL TOTAL     0.0 +j      0.0        0.0       1.0000
+N1       0         0.0 +j      0.0        0.0       1.0000
+   TERMINAL TOTAL     0.0 +j      0.0        0.0       1.0000
+
+ELEMENT = "Reactor.LOAD1GROUND"
+N2       4         0.0 +j      0.0        0.0       1.0000
+   TERMINAL TOTAL     0.0 +j      0.0        0.0       1.0000
+N2       0         0.0 +j      0.0        0.0       1.0000
+   TERMINAL TOTAL     0.0 +j      0.0        0.0       1.0000
+
+= = = = = = = = = = = = = = = = = = =  = = = = = = = = = = =  = =
+
+Power Conversion Elements
+
+  Bus Phase     kW   +j  kvar         kVA         PF
+
+
+Total Circuit Losses =    0.0 +j   -1.2
