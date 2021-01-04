@@ -26,9 +26,9 @@ New Reactor.SourceGround Phases=1 Bus1=n1.4 Bus2=n1.0 R=.5 X=0
 New Reactor.Load1Ground Phases=1 Bus1=n2.4 Bus2=n2.0 R=5 X=0
 set voltagebases=[12.47] 
 calcvoltagebases     ! **** let DSS compute voltage bases
-New Fault.faseA   Phases=1  Bus1=n2.1  Bus2=n2.4 R=.000001
-!New Fault.faseB   Phases=1  Bus1=n2.2  Bus2=n2.4 R=.000001
-!New Fault.faseC   Phases=1  Bus1=n2.3  Bus2=n2.4 R=.000001
+New Fault.faseA   Phases=1  Bus1=n2.1  Bus2=n2.4 R=0.000001
+New Fault.faseB   Phases=1  Bus1=n2.2  Bus2=n2.4 R=.000001
+New Fault.faseC   Phases=1  Bus1=n2.3  Bus2=n2.4 R=.000001
 solve
 ! Various reports ...
 show voltages LN Nodes 
