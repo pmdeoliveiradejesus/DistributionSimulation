@@ -42,7 +42,7 @@ DSSText.Command='calcvoltagebases     ! **** let DSS compute voltage bases';
 % DSSText.Command='New Fault.faseB   Phases=1  Bus1=n2.2  Bus2=n2.4 R=.000001';
 % DSSText.Command='New Fault.faseC   Phases=1  Bus1=n2.3  Bus2=n2.4 R=.000001';
 %DataPath='C:\Users\VaioPC\Dropbox (Uniandes)\UNIANDES\Docencia Uniandes\2020_20\STRA-5432 2020_20\STRA5432 - Workshop 2020\Octave';
-DSSText.Command='CD [C:\Users\VaioPC\Dropbox (Uniandes)\UNIANDES\Docencia Uniandes\2020_20\STRA-5432 2020_20\STRA5432 - Workshop 2020\Octave]';
+DSSText.Command='CD [C:\Users\VaioPC\OneDrive - Universidad de Los Andes\DistributionSimulation\Octave]';
 DSSText.Command='solve';
 DSSText.Command='Export Yprims';
 MM=csvread('SOURCE_1_EXP_YPRIM.CSV',1,2);
