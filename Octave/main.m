@@ -26,8 +26,8 @@ global YbusO
 %[V5,I5,losses(5),iter5]=zimplicit_3(zgabc,zabc,Sabc);
 %[V6,I6,losses(6),iter6]=Newton_3(zgabc,zabc,Sabc,yshabc);
 % [V7,I7,losses(7),iter7]=OpenDSS_3(zgabc,zabc,Sabc,ylabc,yshabc)
-% [V8,I8,losses(8),iter8]=OpenDSS_4(ygabcn,zabcn,Sabc,ylabcn,yshabcn);
-% [V9,I9,losses(9),iter9]=OpenDSS_4_fsolve(ygabcn,zabcn,Sabc,ylabcn,yshabcn);
+ [V8,I8,losses(8),iter8]=OpenDSS_4(ygabcn,zabcn,Sabc,ylabcn,yshabcn);
+ [V9,I9,losses(9),iter9]=OpenDSS_4_fsolve(ygabcn,zabcn,Sabc,ylabcn,yshabcn);
  [V10,I10,losses(10),iter10]=OpenDSS_COM_4(Sabc,zgabc,yshabcn);
 %%%losses.';
 %% Short circuit analysis
@@ -36,5 +36,5 @@ global YbusO
 %[V2c,I2c]=OpenDSS_4_short3(ygabcn,zabcn,Sabc,ylabcn,yshabcn);%Detailed 3ph
 % [abs(V8) abs(V9) abs(V10)]
 % [abs(I8) abs(I9) abs(I10)]
-% [losses(8) losses(9) losses(10)]
+  [losses(8) losses(9) losses(10)]
 
